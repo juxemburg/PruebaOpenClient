@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpErrorService } from './http-error.service';
-import { Observable } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { catchError, retry, tap, delay } from 'rxjs/operators';
+import { HttpDefferedResult } from '../models/shared.models';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,17 @@ export class HttpClientService {
       .pipe(catchError(this._httpError.HandleError()));
   }
 
+  public getDeffered<T>(
+    subUri: string,
+    params: Map<string, string> = null,
+    requestDelay = 200
+  ): HttpDefferedResult<T> {
+    return this.defferedRequest(
+      () => this.get<T>(subUri, params),
+      requestDelay
+    );
+  }
+
   public post<T, U>(
     subUri: string,
     data: T = null,
@@ -48,6 +60,22 @@ export class HttpClientService {
         retry(3),
         catchError(this._httpError.HandleError())
       );
+  }
+
+  private defferedRequest<T>(
+    requestFn: () => Observable<T>,
+    requestDelay = 200
+  ): HttpDefferedResult<T> {
+    const loadingSource = new BehaviorSubject<boolean>(true);
+    return {
+      requestLoading$: loadingSource.asObservable().pipe(delay(requestDelay)),
+      requestResult$: requestFn().pipe(
+        tap(() => {
+          loadingSource.next(false);
+          loadingSource.complete();
+        })
+      ),
+    };
   }
 
   private getFullUrl(
