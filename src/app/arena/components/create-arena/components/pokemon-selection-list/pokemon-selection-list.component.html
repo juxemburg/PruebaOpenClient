@@ -1,0 +1,7 @@
+{{ modelLoading$ | async | json }}
+<app-loading-bars *ngIf="modelLoading$ | async"></app-loading-bars>
+<div *ngIf="model$ | async as model">
+  <div *ngFor="let poke of model">
+    {{ poke | json }}
+  </div>
+</div>
