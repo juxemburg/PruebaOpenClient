@@ -59,6 +59,18 @@ export class HttpClientService {
       );
   }
 
+  public postDeffered<T, U>(
+    subUri: string,
+    data: T = null,
+    params: Map<string, string> = null,
+    requestDelay = 200
+  ): HttpDefferedResult<U> {
+    return this.defferedRequest(
+      this.post<T, U>(subUri, data, params),
+      requestDelay
+    );
+  }
+
   private defferedRequest<T>(
     request$: Observable<T>,
     requestDelay = 200
