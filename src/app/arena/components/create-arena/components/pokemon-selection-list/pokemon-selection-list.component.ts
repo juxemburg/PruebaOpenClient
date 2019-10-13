@@ -18,7 +18,7 @@ export class PokemonSelectionListComponent extends IDestroyable
     super();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.model$ = this._mgrService.pokemonSelectionList$.pipe(
       takeUntil(this._onDestroyed$)
     );
