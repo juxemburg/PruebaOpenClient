@@ -41,10 +41,7 @@ export class HttpClientService {
     params: Map<string, string> = null,
     requestDelay = 200
   ): HttpDefferedResult<T> {
-    return this.defferedRequest(
-      () => this.get<T>(subUri, params),
-      requestDelay
-    );
+    return this.defferedRequest(this.get<T>(subUri, params), requestDelay);
   }
 
   public post<T, U>(
@@ -63,19 +60,20 @@ export class HttpClientService {
   }
 
   private defferedRequest<T>(
-    requestFn: () => Observable<T>,
+    request$: Observable<T>,
     requestDelay = 200
   ): HttpDefferedResult<T> {
     const loadingSource = new BehaviorSubject<boolean>(true);
-    return {
-      requestLoading$: loadingSource.asObservable().pipe(delay(requestDelay)),
-      requestResult$: requestFn().pipe(
+    return new HttpDefferedResult<T>(
+      loadingSource.asObservable(),
+      request$.pipe(
+        delay(requestDelay),
         tap(() => {
           loadingSource.next(false);
           loadingSource.complete();
         })
-      ),
-    };
+      )
+    );
   }
 
   private getFullUrl(
@@ -98,7 +96,7 @@ export class HttpClientService {
     const headerJson = {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      Authorization: `Bearer ${this._authToken}`,
+      // Authorization: `Bearer ${this._authToken}`,
     };
     return new HttpHeaders(headerJson);
   }
