@@ -1,0 +1,19 @@
+<div class="poke-container">
+  <div
+    class="flex-container flex-container--row flex-container--grid 
+    flex-container--ax-between flex-container--ay-center flex-container--sy-none"
+  >
+    <div class="flex-container__item">
+      <span class="subtitle"> #{{ model.pokemon.dexNum }}: </span>
+      <span class="poke-name paragraph">{{ model.pokemon.name }} </span>
+    </div>
+    <div class="flex-container__item">
+      <app-pokemon-icon [pokemonName]="model.pokemon.name"></app-pokemon-icon>
+    </div>
+    <div class="flex-container__item">
+      <button (click)="btnActionClickHandler()" [ngClass]="[btnClass]">
+        <fa-icon [icon]="btnIcon"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>

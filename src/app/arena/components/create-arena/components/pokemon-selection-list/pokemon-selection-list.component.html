@@ -1,6 +1,31 @@
-<app-loading-bars *ngIf="modelLoading$ | async"></app-loading-bars>
-<div *ngIf="model$ | async as model">
-  <div *ngFor="let poke of model">
-    {{ poke | json }}
+<div class="card">
+  <div *ngIf="modelLoading$ | async" class="card__body">
+    <div class="flex-container flex-container--row flex-container--ax-center">
+      <div class="flex-container__item">
+        <app-loading-bars></app-loading-bars>
+      </div>
+    </div>
+  </div>
+  <div class="card__header">
+    <div
+      class="flex-container flex-container--row flex-container--grid 
+      flex-container--sx-none"
+    >
+      <div class="flex-container__item--col-12">
+        <p class="s1">Selecciona los pokemones a incluír en la arena</p>
+      </div>
+    </div>
+  </div>
+  <div class="card__body">
+    <div *ngIf="model$ | async as model">
+      <cdk-virtual-scroll-viewport class="example-viewport" itemSize="30">
+        <ng-container
+          *cdkVirtualFor="let listedItem of model; templateCacheSize: 0"
+        >
+          <app-pokemon-selection-list-item [model]="listedItem">
+          </app-pokemon-selection-list-item>
+        </ng-container>
+      </cdk-virtual-scroll-viewport>
+    </div>
   </div>
 </div>
