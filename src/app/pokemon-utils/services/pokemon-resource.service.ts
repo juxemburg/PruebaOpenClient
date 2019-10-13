@@ -12,6 +12,6 @@ export class PokemonResourceService {
   public getPokemonShortInfoList(): HttpDefferedResult<
     PokemonShortInfoViewModel[]
   > {
-    return this._httpService.getDeffered(`${this._uri}/shortinfo`, null, 2000);
+    return this._httpService.getDeffered(`${this._uri}/shortinfo`);
   }
 }
