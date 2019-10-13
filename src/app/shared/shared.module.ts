@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -8,7 +9,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, HttpClientModule],
   exports: [FontAwesomeModule],
 })
 export class SharedModule {
