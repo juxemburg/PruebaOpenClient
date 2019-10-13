@@ -6,6 +6,13 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    children: [
+      {
+        path: 'arena',
+        loadChildren: () =>
+          import('../arena/arena.module').then(m => m.ArenaModule),
+      },
+    ],
   },
 ];
 
