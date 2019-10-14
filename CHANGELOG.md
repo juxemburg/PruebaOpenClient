@@ -1,3 +1,29 @@
+# [1.0.0](https://github.com/juxemburg/PruebaOpenClient/compare/v0.1.0...v1.0.0) (2019-10-14)
+
+
+### Bug Fixes
+
+* se agrega enrutado con hash ([47ad2b5](https://github.com/juxemburg/PruebaOpenClient/commit/47ad2b5261f5844836e8b1e1e796f168417cbe0c))
+* se añade registro de service worker ([aeff7aa](https://github.com/juxemburg/PruebaOpenClient/commit/aeff7aaf1101d17dda796c7f199eec234008e118))
+* **arena:** se agrega redirección por defecto ([7fdde3d](https://github.com/juxemburg/PruebaOpenClient/commit/7fdde3d1eceac74cce942ccdc62910e72852c969))
+* **arena:** se corrige el formato de fecha ([f95a004](https://github.com/juxemburg/PruebaOpenClient/commit/f95a004aeee8f7227d05eddd721237844a92106a))
+* **main:** ajustes de maquetado ([d6d6614](https://github.com/juxemburg/PruebaOpenClient/commit/d6d66140b9c22a87f121c973de221bf623771c42))
+
+
+### Features
+
+* se agrega soporte inicial para service workers ([3f8d39d](https://github.com/juxemburg/PruebaOpenClient/commit/3f8d39d940882a24f7ce742bcab04d74acac3655))
+* **arena:** actualización de estilos para formulario de nueva arena ([bb63f6a](https://github.com/juxemburg/PruebaOpenClient/commit/bb63f6af918ef204c341b3a493988e547a7dae05))
+* **arena:** se agrega componente para ilustrar los tipos de pokémon ([9fc5948](https://github.com/juxemburg/PruebaOpenClient/commit/9fc59489a25df3cf04cbb56690c6c815172ed718))
+* **arena:** se agrega funcionalidad para acceder a la pokedex ([7f7b6fe](https://github.com/juxemburg/PruebaOpenClient/commit/7f7b6fe03c17140e964f8d29fbf4cbf13990cdb7))
+* **arena:** se agrega soporte para agregar arenas aleatoreas ([bf3243c](https://github.com/juxemburg/PruebaOpenClient/commit/bf3243c3e2c20de464230dd36510c05be0147546))
+* **arena:** se agregan animaciones sobre el listado de pokemones seleccionados ([d0f1cf7](https://github.com/juxemburg/PruebaOpenClient/commit/d0f1cf71abe24e1bb13b3a31183c8e7a6a23ce67))
+* **arena:** se agregan maquetado de resultados de arena ([cf73b14](https://github.com/juxemburg/PruebaOpenClient/commit/cf73b14eb0667700ea6d8b6c558b1033ee85920f))
+* **arena, assets:** se agregan soporte de animaciones ([9ad7598](https://github.com/juxemburg/PruebaOpenClient/commit/9ad75987f5f1b177590a68f8043f403b21aaf7db))
+* **shared:** se agrega botón con indicador de carga ([fe6b4f4](https://github.com/juxemburg/PruebaOpenClient/commit/fe6b4f46ae6dd7a9b4cffcb2bb007c2da4e94caa))
+
+
+
 # [0.1.0](https://github.com/juxemburg/PruebaOpenClient/compare/0538eb3d7bba8e8455703d1c5a379a5538c455ce...v0.1.0) (2019-10-14)
 
 
