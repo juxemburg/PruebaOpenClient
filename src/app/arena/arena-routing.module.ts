@@ -29,6 +29,10 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: '',
+    pathMatch: 'list',
+  },
 ];
 
 @NgModule({
