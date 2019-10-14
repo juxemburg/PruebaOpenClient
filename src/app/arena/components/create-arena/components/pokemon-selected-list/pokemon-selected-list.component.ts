@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { IDestroyable } from 'src/app/shared/models/IDestroyable.class';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { PokemonShortInfoSelection } from '../../models/create-arena.models';
 import { CreateArenaMgrService } from '../../services/create-arena-mgr.service';
 import { takeUntil, map } from 'rxjs/operators';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { listAnimations } from 'src/assets/animations/lists.animations';
 
 @Component({
   selector: 'app-pokemon-selected-list',
   templateUrl: './pokemon-selected-list.component.html',
   styleUrls: ['./pokemon-selected-list.component.scss'],
+  animations: [listAnimations],
 })
 export class PokemonSelectedListComponent extends IDestroyable
   implements OnInit {
   public model: PokemonShortInfoSelection[] = [];
   public modelLoading$: Observable<boolean>;
+  private _submittingSource = new Subject<boolean>();
+  public submitting$ = this._submittingSource
+    .asObservable()
+    .pipe(takeUntil(this._onDestroyed$));
+
   constructor(private _mgrService: CreateArenaMgrService) {
     super();
   }
@@ -40,6 +47,8 @@ export class PokemonSelectedListComponent extends IDestroyable
       return;
     }
 
-    this._mgrService.createArena(this.model.map(item => item.pokemon.name));
+    this._mgrService
+      .createArena(this.model.map(item => item.pokemon.name))
+      .subscribe(v => this._submittingSource.next(v));
   }
 }

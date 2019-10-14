@@ -1,9 +1,6 @@
-<div class="card">
+<div class="card" routerLinkActive="selected-card">
   <div class="card__header">
-    <a
-      [routerLink]="['encounter', model.order]"
-      routerLinkActive="router-link-active"
-    >
+    <a [routerLink]="['encounter', model.order]">
       <h5>{{ model.order + 1 }}{{ positionString }}</h5>
       <p class="subtitle2">
         Encuentro

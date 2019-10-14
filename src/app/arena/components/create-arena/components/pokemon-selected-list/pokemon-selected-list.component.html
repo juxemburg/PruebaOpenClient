@@ -9,13 +9,15 @@
         <p class="s1">Pokemon seleccionados</p>
       </div>
       <div class="flex-container__item">
-        <button
+        <app-sumbit-button
+          btnText="Empezar torneo"
+          btnClass="btn btn--xs btn--round btn--primary"
           [disabled]="model.length === 0"
-          (click)="startArena()"
-          class="btn btn--xs btn--round btn--primary"
+          icon="play"
+          [isLoading$]="submitting$"
+          (onClicked)="startArena()"
         >
-          Empezar torneo <fa-icon icon="play" [fixedWidth]="true"></fa-icon>
-        </button>
+        </app-sumbit-button>
       </div>
     </div>
   </div>
@@ -28,6 +30,7 @@
   </div>
   <div *ngIf="model" class="card__body">
     <div
+      @list
       cdkDropList
       class="example-list list-container"
       (cdkDropListDropped)="drop($event)"
@@ -39,6 +42,7 @@
       >
         <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
         <div
+          @items
           class="flex-container flex-container--ax-between 
           flex-container--ay-baseline flex-container--row 
           flex-container--s-none --bg-white"

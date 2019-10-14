@@ -4,11 +4,13 @@ import { Subject } from 'rxjs';
 import { PokemonArenaShortInfoViewModel } from '../arena-details/models/arena-details.models';
 import { IDestroyable } from 'src/app/shared/models/IDestroyable.class';
 import { takeUntil } from 'rxjs/operators';
+import { listCascadeAnimations } from 'src/assets/animations/lists.animations';
 
 @Component({
   selector: 'app-arena-list',
   templateUrl: './arena-list.component.html',
   styleUrls: ['./arena-list.component.scss'],
+  animations: [listCascadeAnimations],
 })
 export class ArenaListComponent extends IDestroyable implements OnInit {
   private _modelSource = new Subject<PokemonArenaShortInfoViewModel[]>();

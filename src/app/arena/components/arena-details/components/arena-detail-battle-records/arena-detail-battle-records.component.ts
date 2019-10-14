@@ -4,11 +4,13 @@ import { ArenaDetailsMgrService } from '../../services/arena-details-mgr.service
 import { Observable } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
 import { BattleRecord } from '../../models/arena-details.models';
+import { listCascadeAnimations } from 'src/assets/animations/lists.animations';
 
 @Component({
   selector: 'app-arena-detail-battle-records',
   templateUrl: './arena-detail-battle-records.component.html',
   styleUrls: ['./arena-detail-battle-records.component.scss'],
+  animations: [listCascadeAnimations],
 })
 export class ArenaDetailBattleRecordsComponent extends IDestroyable
   implements OnInit {
