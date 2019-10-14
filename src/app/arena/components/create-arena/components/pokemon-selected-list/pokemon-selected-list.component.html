@@ -27,18 +27,29 @@
     </div>
   </div>
   <div *ngIf="model" class="card__body">
-    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let listedItem of model" cdkDrag>
+    <div
+      cdkDropList
+      class="example-list list-container"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        class="list-container__item"
+        *ngFor="let listedItem of model"
+        cdkDrag
+      >
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
         <div
           class="flex-container flex-container--ax-between 
           flex-container--ay-baseline flex-container--row 
-          flex-container--s-none"
+          flex-container--s-none --bg-white"
         >
           <div class="flex-container__item --col-1">
             <div cdkDragHandle>
-              <p class="subtittle2">
+              <button
+                class="btn btn--grab btn--primary btn--translucid btn--sm"
+              >
                 <fa-icon icon="arrows-alt"></fa-icon>
-              </p>
+              </button>
             </div>
           </div>
           <div class="flex-container__item --col-11">
