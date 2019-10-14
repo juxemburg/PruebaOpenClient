@@ -1,0 +1,25 @@
+<div
+  *ngIf="loading$ | async"
+  class="flex-container flex-container--row flex-container--ax-center flex-container--grid"
+>
+  <div class="flex-container__item">
+    <app-loading-spin></app-loading-spin>
+  </div>
+</div>
+<ng-container *ngIf="model$ | async as model">
+  <cdk-virtual-scroll-viewport itemSize="130" class="example-viewport">
+    <div
+      class="flex-container flex-container--row 
+    flex-container--grid flex-container--ax-start"
+    >
+      <ng-container *cdkVirtualFor="let item of model; let i = index">
+        <div class="flex-container__item --col-xs-12 --col-lg-6 --col-xxl-4">
+          <app-arena-list-item
+            [model]="item"
+            [arenaNum]="i + 1"
+          ></app-arena-list-item>
+        </div>
+      </ng-container>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</ng-container>

@@ -1,3 +1,10 @@
+export interface PokemonArenaShortInfoViewModel {
+  id: number;
+  date: string;
+  elapsedMiliseconds: number;
+  stepCount: number;
+}
+
 export interface PokemonArenaDetailViewModel {
   fightCount: number;
   arenaElapsedTime: number;

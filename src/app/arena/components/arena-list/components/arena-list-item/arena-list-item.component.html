@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card__header">
+    <h4>
+      <fa-icon icon="award"></fa-icon>
+      Arena {{ arenaNum }}
+    </h4>
+  </div>
+  <div class="card__body">
+    <p class="subtitle">
+      <fa-icon icon="calendar-day"></fa-icon> Fecha:
+      <span class="paragraph2">
+        {{ model.date | date: 'dd/mm/yy hh:mm:ss' }}
+      </span>
+    </p>
+    <p class="subtitle">
+      <fa-icon icon="stopwatch"></fa-icon> Duración:
+      <span class="paragraph2"> {{ model.elapsedMiliseconds }}ms </span>
+    </p>
+  </div>
+  <div class="card__footer">
+    <div
+      class="flex-container flex-container--row 
+      flex-container--grid flex-container--ax-between 
+      flex-container--ay-center"
+    >
+      <div class="flex-container__item">
+        <p class="paragraph2">{{ model.stepCount }} encuentros</p>
+      </div>
+      <div class="flex-container__item">
+        <a
+          [routerLink]="['../', model.id]"
+          class="btn btn--primary btn-xs btn--round"
+        >
+          Ver resultados <fa-icon icon="scroll"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

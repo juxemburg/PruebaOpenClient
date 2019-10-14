@@ -3,12 +3,16 @@
     <h6>PokeArena</h6>
   </div>
   <nav class="sidebar__content">
-    <a href="" class="sidebar__content__link">
+    <a
+      routerLinkActive="--active"
+      [routerLink]="['/home/arena/list']"
+      class="sidebar__content__link"
+    >
       <span class="sidebar__content__link__icon">
-        <fa-icon icon="search" size="lg"></fa-icon>
+        <fa-icon icon="list-alt" size="lg"></fa-icon>
       </span>
       <span class="sidebar__content__link__text">
-        Buscar Pokémon
+        Ver arenas
       </span>
     </a>
     <a
@@ -20,7 +24,15 @@
         <fa-icon icon="gamepad" size="lg"></fa-icon>
       </span>
       <span class="sidebar__content__link__text">
-        Crear Arena Pókemon
+        Crear arena
+      </span>
+    </a>
+    <a class="sidebar__content__link">
+      <span class="sidebar__content__link__icon">
+        <fa-icon icon="dice" size="lg"></fa-icon>
+      </span>
+      <span class="sidebar__content__link__text">
+        Arena aleatorea
       </span>
     </a>
   </nav>
