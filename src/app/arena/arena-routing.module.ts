@@ -4,6 +4,9 @@ import { CreateArenaComponent } from './components/create-arena/create-arena.com
 import { ArenaDetailsComponent } from './components/arena-details/arena-details.component';
 import { ArenaDetailBattleEncounterComponent } from './components/arena-details/components/arena-detail-battle-encounter/arena-detail-battle-encounter.component';
 import { ArenaListComponent } from './components/arena-list/arena-list.component';
+import { PokedexListComponent } from './components/pokedex-list/pokedex-list.component';
+import { PokedexListEntryComponent } from './components/pokedex-list/components/pokedex-list-entry/pokedex-list-entry.component';
+import { PokedexListEntryEmptyComponent } from './components/pokedex-list/components/pokedex-list-entry-empty/pokedex-list-entry-empty.component';
 
 const routes: Routes = [
   {
@@ -13,6 +16,25 @@ const routes: Routes = [
   {
     path: 'list',
     component: ArenaListComponent,
+  },
+  {
+    path: 'pokedex-list',
+    component: PokedexListComponent,
+    children: [
+      {
+        path: 'empty',
+        component: PokedexListEntryEmptyComponent,
+      },
+      {
+        path: ':id',
+        component: PokedexListEntryComponent,
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'empty',
+      },
+    ],
   },
   {
     path: ':arenaId',
@@ -31,7 +53,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    pathMatch: 'list',
+    pathMatch: 'full',
+    redirectTo: 'list',
   },
 ];
 

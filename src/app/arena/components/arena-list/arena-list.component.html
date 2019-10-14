@@ -7,17 +7,14 @@
   </div>
 </div>
 <ng-container *ngIf="model$ | async as model">
-  <cdk-virtual-scroll-viewport itemSize="130" class="example-viewport">
+  <cdk-virtual-scroll-viewport itemSize="210" class="example-viewport">
     <div
       @list
       class="flex-container flex-container--row 
     flex-container--grid flex-container--ax-start"
     >
       <ng-container *cdkVirtualFor="let item of model; let i = index">
-        <div
-          @items
-          class="flex-container__item --col-xs-12 --col-lg-6 --col-xxl-4"
-        >
+        <div @items class="flex-container__item --col-xs-12">
           <app-arena-list-item
             [model]="item"
             [arenaNum]="i + 1"

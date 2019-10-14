@@ -1,0 +1,17 @@
+.virtual-viewport {
+  height: 80vh;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.--btn-dex-entry {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+  width: 100px;
+  height: 60px;
+  align-items: center;
+}

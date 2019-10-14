@@ -18,12 +18,12 @@
   </div>
   <div class="card__body">
     <div *ngIf="model$ | async as model">
-      <cdk-virtual-scroll-viewport class="example-viewport" itemSize="45">
-        <div @list class="list-container">
+      <cdk-virtual-scroll-viewport class="example-viewport" itemSize="50">
+        <div class="list-container">
           <ng-container
             *cdkVirtualFor="let listedItem of model; templateCacheSize: 0"
           >
-            <div @items class="list-container__item">
+            <div class="list-container__item">
               <app-pokemon-selection-list-item [model]="listedItem">
               </app-pokemon-selection-list-item>
             </div>

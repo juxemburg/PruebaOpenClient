@@ -1,23 +1,29 @@
 <div class="card">
   <div class="card__header">
-    <h4>
-      <fa-icon icon="award"></fa-icon>
-      Arena {{ arenaNum }}
-    </h4>
+    <div
+      class="flex-container flex-container--row flex-container--grid flex-container--ax-between"
+    >
+      <div class="flex-container__item">
+        <h4>
+          <fa-icon icon="medal"></fa-icon>
+          Arena {{ arenaNum }}
+        </h4>
+      </div>
+      <div class="flex-container__item">
+        <p class="subtitle">
+          <fa-icon icon="calendar-day"></fa-icon> Fecha:
+          <span class="paragraph2">
+            {{ model.date | date: 'MMM d, y, h:mm:ss a' }}
+          </span>
+        </p>
+        <p class="subtitle">
+          <fa-icon icon="stopwatch"></fa-icon> Duración:
+          <span class="paragraph2"> {{ model.elapsedMiliseconds }}ms </span>
+        </p>
+      </div>
+    </div>
   </div>
   <div class="card__body">
-    <p class="subtitle">
-      <fa-icon icon="calendar-day"></fa-icon> Fecha:
-      <span class="paragraph2">
-        {{ model.date | date: 'MMM d, y, h:mm:ss a' }}
-      </span>
-    </p>
-    <p class="subtitle">
-      <fa-icon icon="stopwatch"></fa-icon> Duración:
-      <span class="paragraph2"> {{ model.elapsedMiliseconds }}ms </span>
-    </p>
-  </div>
-  <div class="card__footer">
     <div
       class="flex-container flex-container--row 
       flex-container--grid flex-container--ax-between 

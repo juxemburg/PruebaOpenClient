@@ -17,6 +17,9 @@ import { PokemonInfoCardComponent } from './components/pokemon-info-card/pokemon
 import { PokemonIconComponent } from './components/pokemon-icon/pokemon-icon.component';
 import { PokemonResourceService } from './services/pokemon-resource.service';
 import { PokemonTypeIconComponent } from './components/pokemon-type-icon/pokemon-type-icon.component';
+import { PokedexListComponent } from './components/pokedex-list/pokedex-list.component';
+import { PokedexListEntryComponent } from './components/pokedex-list/components/pokedex-list-entry/pokedex-list-entry.component';
+import { PokedexListEntryEmptyComponent } from './components/pokedex-list/components/pokedex-list-entry-empty/pokedex-list-entry-empty.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { PokemonTypeIconComponent } from './components/pokemon-type-icon/pokemon
     PokemonInfoCardComponent,
     PokemonIconComponent,
     PokemonTypeIconComponent,
+    PokedexListComponent,
+    PokedexListEntryComponent,
+    PokedexListEntryEmptyComponent,
   ],
   imports: [CommonModule, SharedModule, ArenaRoutingModule],
   providers: [PokemonResourceService],

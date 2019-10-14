@@ -1,0 +1,28 @@
+<div
+  class="flex-container flex-container--row flex-container--ax-between flex-container--grid"
+>
+  <div class="flex-container__item --col-xs-5">
+    <cdk-virtual-scroll-viewport class="virtual-viewport" itemSize="65">
+      <ng-container *cdkVirtualFor="let item of model$; templateCacheSize: 0">
+        <div class="btn-container">
+          <a
+            [routerLink]="['/home/arena/pokedex-list', item.dexNum]"
+            routerLinkActive
+            #rla="routerLinkActive"
+            class="btn btn--secondary --btn-dex-entry"
+            [ngClass]="{ 'btn--outline': !rla.isActive }"
+          >
+            <span>
+              {{ item.dexNum }}
+              {{ item.name }}
+            </span>
+            <app-pokemon-icon [pokemonName]="item.name"></app-pokemon-icon>
+          </a>
+        </div>
+      </ng-container>
+    </cdk-virtual-scroll-viewport>
+  </div>
+  <div class="flex-container__item --col-xs-7 --col-lg-5">
+    <router-outlet></router-outlet>
+  </div>
+</div>
