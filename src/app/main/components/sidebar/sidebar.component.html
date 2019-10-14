@@ -27,12 +27,16 @@
         Crear arena
       </span>
     </a>
-    <a class="sidebar__content__link">
+    <a
+      [routerLink]="['/home/arena/pokedex-list']"
+      routerLinkActive="--active"
+      class="sidebar__content__link"
+    >
       <span class="sidebar__content__link__icon">
-        <fa-icon icon="dice" size="lg"></fa-icon>
+        <fa-icon icon="tablet-alt" size="lg"></fa-icon>
       </span>
       <span class="sidebar__content__link__text">
-        Arena aleatorea
+        Ver pokédex
       </span>
     </a>
   </nav>

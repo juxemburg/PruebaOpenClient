@@ -12,6 +12,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('../arena/arena.module').then(m => m.ArenaModule),
       },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'arena',
+      },
     ],
   },
 ];
