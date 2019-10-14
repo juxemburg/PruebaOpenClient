@@ -18,6 +18,12 @@ export class ArenaResourceService {
     return this._http.postDeffered(`${this._uri}`, pkmnNames);
   }
 
+  public createRandomPokemonArena(
+    pkmnCount: number
+  ): HttpDefferedResult<number> {
+    return this._http.postDeffered(`${this._uri}/Random`, pkmnCount);
+  }
+
   public getPokemonArenaList(): HttpDefferedResult<
     PokemonArenaShortInfoViewModel[]
   > {

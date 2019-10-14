@@ -1,10 +1,66 @@
 <div
-  class="flex-container flex-container--row flex-container--grid flex-container--ax-around"
+  class="flex-container flex-container--row flex-container--grid 
+  flex-container--ax-around"
 >
-  <div class="flex-container__item --col-lg-6 --col-sm-10 --col-xs-12">
+  <div *ngIf="isLoading" class="flex-container__item --col-xs-12">
+    <app-loading-spin></app-loading-spin>
+  </div>
+  <div
+    [hidden]="isLoading"
+    [@loadContentAnimation]="isLoading"
+    class="flex-container__item --col-xs-12 --col-md-10 --col-lg-7"
+  >
+    <div class="card">
+      <div class="card__body">
+        <div class="form">
+          <p class="subtitle">
+            Iniciar arena aleatorea
+          </p>
+          <div
+            class="flex-container flex-container--row flex-container--sy-none flex-container--sx-condensed flex-container--ay-center"
+          >
+            <div class="flex-container__item">
+              <div class="form__control form__control--inline">
+                <label for="pokemonNumber" class="form__control__label">
+                  Número de participantes:
+                </label>
+                <input
+                  [(ngModel)]="pkmnCount"
+                  type="number"
+                  name="pokemonNumber"
+                  min="2"
+                  max="700"
+                  class="form__control__input"
+                />
+              </div>
+            </div>
+            <div class="flex-container__item">
+              <app-sumbit-button
+                btnClass="btn btn--primary"
+                [disabled]="pkmnCount < 2"
+                icon="random"
+                [isLoading$]="submitting$"
+                (onClicked)="createArena()"
+              >
+              </app-sumbit-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    [hidden]="isLoading"
+    [@loadContentAnimation]="isLoading"
+    class="flex-container__item --col-lg-6 --col-sm-10 --col-xs-12"
+  >
     <app-pokemon-selection-list></app-pokemon-selection-list>
   </div>
-  <div class="flex-container__item --col-lg-6 --col-sm-10 --col-xs-12">
+  <div
+    [hidden]="isLoading"
+    [@loadContentAnimation]="isLoading"
+    class="flex-container__item --col-lg-6 --col-sm-10 --col-xs-12"
+  >
     <app-pokemon-selected-list> </app-pokemon-selected-list>
   </div>
 </div>

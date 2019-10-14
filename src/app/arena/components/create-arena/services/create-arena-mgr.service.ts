@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { PokemonResourceService } from 'src/app/pokemon-utils/services/pokemon-resource.service';
+
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 import { PokemonShortInfoSelection } from '../models/create-arena.models';
 import { ArenaResourceService } from 'src/app/arena/services/arena-resource.service';
 import { Router } from '@angular/router';
+import { PokemonResourceService } from 'src/app/arena/services/pokemon-resource.service';
 
 @Injectable()
 export class CreateArenaMgrService {
@@ -69,6 +70,21 @@ export class CreateArenaMgrService {
     }
 
     const result = this._arenaResourceService.createPokemonArena(pokmnNames);
+
+    result.requestResult$.subscribe(arenaId =>
+      this._router.navigate(['home/arena/', arenaId])
+    );
+    return result.requestLoading$;
+  }
+
+  public createRandomArena(pkmnCount): Observable<boolean> {
+    if (pkmnCount < 0) {
+      return;
+    }
+
+    const result = this._arenaResourceService.createRandomPokemonArena(
+      pkmnCount
+    );
 
     result.requestResult$.subscribe(arenaId =>
       this._router.navigate(['home/arena/', arenaId])
