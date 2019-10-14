@@ -1,0 +1,17 @@
+<div class="flex-container flex-container--row flex flex-container--ax-between">
+  <div *ngIf="loading$ | async" class="flex-container__item --col-xs-12">
+    <app-loading-spin></app-loading-spin>
+  </div>
+  <ng-container *ngIf="model$ | async as model">
+    <div class="flex-container__item --col-xs-12 --col-md-6">
+      <app-pokemon-info-card
+        [id]="model.challengerPokemon.dexNum"
+      ></app-pokemon-info-card>
+    </div>
+    <div class="flex-container__item --col-xs-12 --col-md-6">
+      <app-pokemon-info-card
+        [id]="model.challengedPokemon.dexNum"
+      ></app-pokemon-info-card>
+    </div>
+  </ng-container>
+</div>

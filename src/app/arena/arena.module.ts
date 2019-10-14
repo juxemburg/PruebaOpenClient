@@ -9,6 +9,9 @@ import { PokemonSelectionListComponent } from './components/create-arena/compone
 import { PokemonSelectionListItemComponent } from './components/create-arena/components/pokemon-selection-list-item/pokemon-selection-list-item.component';
 import { PokemonSelectedListComponent } from './components/create-arena/components/pokemon-selected-list/pokemon-selected-list.component';
 import { ArenaDetailsComponent } from './components/arena-details/arena-details.component';
+import { ArenaDetailBattleRecordsComponent } from './components/arena-details/components/arena-detail-battle-records/arena-detail-battle-records.component';
+import { ArenaDetailBattleEncounterComponent } from './components/arena-details/components/arena-detail-battle-encounter/arena-detail-battle-encounter.component';
+import { ArenaDetailBattleRecordItemComponent } from './components/arena-details/components/arena-detail-battle-record-item/arena-detail-battle-record-item.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { ArenaDetailsComponent } from './components/arena-details/arena-details.
     PokemonSelectionListItemComponent,
     PokemonSelectedListComponent,
     ArenaDetailsComponent,
+    ArenaDetailBattleRecordsComponent,
+    ArenaDetailBattleEncounterComponent,
+    ArenaDetailBattleRecordItemComponent,
   ],
   imports: [CommonModule, PokemonUtilsModule, SharedModule, ArenaRoutingModule],
 })

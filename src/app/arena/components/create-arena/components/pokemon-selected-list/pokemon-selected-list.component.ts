@@ -40,6 +40,6 @@ export class PokemonSelectedListComponent extends IDestroyable
       return;
     }
 
-    this._mgrService.createArena();
+    this._mgrService.createArena(this.model.map(item => item.pokemon.name));
   }
 }

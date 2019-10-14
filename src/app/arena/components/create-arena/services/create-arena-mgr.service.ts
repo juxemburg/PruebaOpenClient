@@ -63,17 +63,12 @@ export class CreateArenaMgrService {
     this.pokemonSelectionList = [...this._pokemonSelectionList];
   }
 
-  public createArena(): Observable<boolean> {
-    const selectedPokemons = this._pokemonSelectionList
-      .filter(item => item.selected)
-      .map(item => item.pokemon.name);
-    if (!this.selectPokemon.length) {
+  public createArena(pokmnNames: string[]): Observable<boolean> {
+    if (!pokmnNames || !pokmnNames.length) {
       return;
     }
 
-    const result = this._arenaResourceService.createPokemonArena(
-      selectedPokemons
-    );
+    const result = this._arenaResourceService.createPokemonArena(pokmnNames);
 
     result.requestResult$.subscribe(arenaId =>
       this._router.navigate(['home/arena/', arenaId])

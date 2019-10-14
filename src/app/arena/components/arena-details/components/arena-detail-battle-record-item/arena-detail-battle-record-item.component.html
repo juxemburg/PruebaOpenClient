@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card__header">
+    <a
+      [routerLink]="['encounter', model.order]"
+      routerLinkActive="router-link-active"
+    >
+      <h5>{{ model.order + 1 }}{{ positionString }}</h5>
+      <p class="subtitle2">
+        Encuentro
+      </p>
+    </a>
+  </div>
+  <div class="card__body">
+    <div class="flex-container flex-container--row flex-container--ax-between">
+      <div class="flex_container__item">
+        <app-pokemon-icon
+          [pokemonName]="model.challengerPokemon.name"
+        ></app-pokemon-icon>
+      </div>
+      <div class="flex_container__item">
+        <p class="subtitle">VS</p>
+      </div>
+      <div class="flex_container__item">
+        <app-pokemon-icon
+          [pokemonName]="model.challengedPokemon.name"
+        ></app-pokemon-icon>
+      </div>
+    </div>
+  </div>
+</div>
