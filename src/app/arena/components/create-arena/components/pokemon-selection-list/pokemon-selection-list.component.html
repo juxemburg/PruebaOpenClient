@@ -1,11 +1,4 @@
 <div class="card">
-  <div *ngIf="modelLoading$ | async" class="card__body">
-    <div class="flex-container flex-container--row flex-container--ax-center">
-      <div class="flex-container__item">
-        <app-loading-bars></app-loading-bars>
-      </div>
-    </div>
-  </div>
   <div class="card__header">
     <div
       class="flex-container flex-container--row flex-container--grid 
@@ -13,6 +6,13 @@
     >
       <div class="flex-container__item--col-12">
         <p class="s1">Selecciona los pokemones a incluír en la arena</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="modelLoading$ | async" class="card__body">
+    <div class="flex-container flex-container--row flex-container--ax-center">
+      <div class="flex-container__item">
+        <app-loading-bars></app-loading-bars>
       </div>
     </div>
   </div>
