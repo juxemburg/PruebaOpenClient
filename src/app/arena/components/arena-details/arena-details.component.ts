@@ -4,18 +4,19 @@ import { ActivatedRoute } from '@angular/router';
 import { IDestroyable } from 'src/app/shared/models/IDestroyable.class';
 import { takeUntil, filter, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { ArenaPosition } from './models/arena-details.models';
+import { listCascadeAnimations } from 'src/assets/animations/lists.animations';
 
 @Component({
   selector: 'app-arena-details',
   templateUrl: './arena-details.component.html',
   styleUrls: ['./arena-details.component.scss'],
   providers: [ArenaDetailsMgrService],
+  animations: [listCascadeAnimations],
 })
 export class ArenaDetailsComponent extends IDestroyable implements OnInit {
   public model$: Observable<{
-    initial: ArenaPosition[];
-    final: ArenaPosition[];
+    fightCount: number;
+    arenaElapsedTime: number;
   }>;
 
   public loading$: Observable<boolean>;
@@ -39,8 +40,8 @@ export class ArenaDetailsComponent extends IDestroyable implements OnInit {
     this.model$ = this._mgrService.model$.pipe(
       takeUntil(this._onDestroyed$),
       map(model => ({
-        initial: model.initialArenaPosition,
-        final: model.finalArenaPosition,
+        fightCount: model.fightCount,
+        arenaElapsedTime: model.arenaElapsedTime,
       }))
     );
   }

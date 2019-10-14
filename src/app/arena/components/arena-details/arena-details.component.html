@@ -4,14 +4,46 @@
   <div *ngIf="loading$ | async" class="flex-container__item --col-xs-12">
     <app-loading-spin></app-loading-spin>
   </div>
-  <div class="flex-container__item --col-xs-12 --col-md-4 --col-lg-2">
+  <div class="flex-container__item --col-xs-12 --col-md-4 --col-lg-4">
     <div *ngIf="model$ | async as model">
       <div
         class="flex-container flex-container--row flex-container--grid flex-container--ax-around"
-      ></div>
+      >
+        <div class="card card--plain">
+          <div class="card__header">
+            <h4>
+              Resultados de la arena
+            </h4>
+          </div>
+          <div class="card__body">
+            <div
+              class="flex-container flex-container--row flex-container--grid"
+            >
+              <div class="flex-container__item --col-xs-12">
+                <p class="subtitle">
+                  Duración:
+                  <span class="paragraph">
+                    {{ model.arenaElapsedTime }}ms
+                  </span>
+                </p>
+              </div>
+              <div class="flex-container__item --col-xs-12">
+                <p class="subtitle">
+                  Número de encuentros:
+                  <span class="paragraph"> {{ model.fightCount }}</span>
+                </p>
+              </div>
+              <div class="flex-container__item"></div>
+              <div class="flex-container__item"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="flex-container__item --col-xs-12 --col-md-8 --col-lg-10">
+  <div
+    class="flex-container__item --col-xs-12 --col-md-8 --col-lg-10 --encounter-container"
+  >
     <router-outlet></router-outlet>
   </div>
   <div class="flex-container__item --col-12">

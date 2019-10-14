@@ -6,11 +6,13 @@
     <div class="flex-container__item --col-xs-12 --col-md-6">
       <app-pokemon-info-card
         [id]="model.challengerPokemon.dexNum"
+        [winner]="true"
       ></app-pokemon-info-card>
     </div>
     <div class="flex-container__item --col-xs-12 --col-md-6">
       <app-pokemon-info-card
         [id]="model.challengedPokemon.dexNum"
+        [winner]="false"
       ></app-pokemon-info-card>
     </div>
   </ng-container>
