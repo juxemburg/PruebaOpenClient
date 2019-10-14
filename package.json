@@ -1,5 +1,5 @@
 {
-  "name": "pokeClient",
+  "name": "pokeclient",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,11 @@
     "build:ssr": "ng run :server:dev",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "vers:prerelease": "npm version prerelease  && conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -m \"build(*): CHANGELOG UPDATE\" && git push origin HEAD",
+    "vers:prepatch": "npm version prepatch && conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -m \"build(*): CHANGELOG UPDATE\" && git push origin HEAD",
+    "vers:patch": "npm version patch && conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -m \"build(*): CHANGELOG UPDATE\" && git push origin HEAD",
+    "vers:minor": "npm version minor && conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -m \"build(*): CHANGELOG UPDATE\" && git push origin HEAD"
   },
   "private": true,
   "dependencies": {
