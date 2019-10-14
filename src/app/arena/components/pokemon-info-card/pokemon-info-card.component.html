@@ -1,0 +1,115 @@
+<div *ngIf="loading$ | async" class="card card--plain loading-card">
+  <div class="card__body">
+    <div class="flex-container flex-container--ax-center flex-container--row">
+      <div class="flex-container__item">
+        <app-loading-bars></app-loading-bars>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card" *ngIf="model$ | async as model">
+  <div class="card__header">
+    <div
+      class="flex-container flex-container--row 
+      flex-container--grid flex-container--ax-center"
+    >
+      <div class="flex-container__item --col-xs-12">
+        <div
+          class="flex-container flex-container--row 
+          flex-container--ax-center"
+        >
+          <img
+            class="profile-img"
+            [src]="
+              defaultconfig
+                ? model.sprites.default.front
+                : model.sprites.shiny.front
+            "
+          />
+        </div>
+      </div>
+
+      <div class="flex-container__item --col-xs-6">
+        <div
+          class="flex-container flex-container--row 
+          flex-container--ax-center"
+        >
+          <button
+            class="btn btn--secondary btn--xs"
+            (click)="changeConfigHandler()"
+            [ngClass]="{ 'btn--outline': !defaultconfig }"
+          >
+            Normal
+          </button>
+        </div>
+      </div>
+      <div class="flex-container__item --col-xs-6">
+        <div
+          class="flex-container flex-container--row 
+          flex-container--ax-center"
+        >
+          <button
+            class="btn btn--secondary btn--xs"
+            (click)="changeConfigHandler(false)"
+            [ngClass]="{ 'btn--outline': defaultconfig }"
+          >
+            Shiny
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card__body">
+    <div
+      class="flex-container flex-container--row 
+      flex-container--grid
+      flex-container--ax-center"
+    >
+      <div class="flex-container__item --col-xs-10">
+        <p class="subtitle --text-center">
+          <fa-icon *ngIf="winner" icon="trophy"></fa-icon>
+          #{{ model.id }} {{ model.name }}
+        </p>
+      </div>
+      <div class="flex-container__item --col-xs-12">
+        <div
+          class="flex-container flex-container--row 
+          flex-container--ax-center flex-container--sy-none"
+        >
+          <div class="flex-container__item --col-xs-4">
+            <p class="paragraph2 --text-center">
+              <app-pokemon-type-icon [type]="model.types[0]">
+              </app-pokemon-type-icon>
+            </p>
+          </div>
+          <div
+            *ngIf="model.types.length === 2"
+            class="flex-container__item --col-xs-4"
+          >
+            <p class="paragraph2 --text-center">
+              <app-pokemon-type-icon [type]="model.types[1]">
+              </app-pokemon-type-icon>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex-container__item --col-xs-6">
+        <div class="--text-center">
+          <span class="subtitle2 --text-center">
+            Peso:
+          </span>
+          <span class="paragraph2 --text-center"> {{ model.weight }}kg </span>
+        </div>
+      </div>
+      <div class="flex-container__item --col-xs-6">
+        <div class="--text-center">
+          <span class="subtitle2 --text-center">
+            Altura:
+          </span>
+          <span class="paragraph2 --text-center"> {{ model.height }}mt </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

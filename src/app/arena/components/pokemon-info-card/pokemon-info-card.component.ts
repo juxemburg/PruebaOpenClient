@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonResourceService } from '../../services/pokemon-resource.service';
 import { Subject, BehaviorSubject } from 'rxjs';
-import { PokemonInfoViewModel } from '../../models/pokemon.models';
+
 import { IDestroyable } from 'src/app/shared/models/IDestroyable.class';
 import { takeUntil, filter } from 'rxjs/operators';
+import { PokemonInfoViewModel } from '../../models/pokemon.models';
 
 @Component({
   selector: 'app-pokemon-info-card',
@@ -17,8 +18,14 @@ export class PokemonInfoCardComponent extends IDestroyable implements OnInit {
     filter(id => id > 0)
   );
   @Input() public set id(v: number) {
+    this._modelSource.next(null);
     this._idSource.next(v);
+    this.defaultconfig = true;
   }
+
+  @Input() winner: boolean;
+
+  public defaultconfig = true;
 
   private _modelSource = new Subject<PokemonInfoViewModel>();
   public model$ = this._modelSource
@@ -34,7 +41,7 @@ export class PokemonInfoCardComponent extends IDestroyable implements OnInit {
   }
 
   ngOnInit(): void {
-    this._idSource.subscribe(id => {
+    this._idChanged$.subscribe(id => {
       this._pokemonResourceService
         .getPokemonInfo(id)
         .execute((result$, loading$) => {
@@ -42,5 +49,9 @@ export class PokemonInfoCardComponent extends IDestroyable implements OnInit {
           loading$.subscribe(v => this._loadingSource.next(v));
         });
     });
+  }
+
+  changeConfigHandler(v = true): void {
+    this.defaultconfig = v;
   }
 }
