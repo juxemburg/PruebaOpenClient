@@ -1,0 +1,9 @@
+<button
+  (click)="btnClickHandler()"
+  type="button"
+  [ngClass]="[btnClass]"
+  [disabled]="disabled || loading"
+>
+  {{ btnText }}
+  <fa-icon [icon]="btnIcon" [spin]="loading" [fixedWidth]="true"></fa-icon>
+</button>
