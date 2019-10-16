@@ -1,4 +1,4 @@
-<div class="card" routerLinkActive="selected-card">
+<div (click)="cardClickHandler()" class="card --clickable" routerLinkActive="selected-card">
   <div class="card__header">
     <a [routerLink]="['encounter', model.order]">
       <h5>{{ model.order + 1 }}{{ positionString }}</h5>

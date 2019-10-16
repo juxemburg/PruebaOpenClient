@@ -3,6 +3,8 @@ export interface PokemonArenaShortInfoViewModel {
   date: string;
   elapsedMiliseconds: number;
   stepCount: number;
+  winnerId: number;
+  winnerName: string;
 }
 
 export interface PokemonArenaDetailViewModel {

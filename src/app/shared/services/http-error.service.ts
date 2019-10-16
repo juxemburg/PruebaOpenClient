@@ -20,6 +20,7 @@ export class HttpErrorService {
           this._router.navigate(['account/login']);
           break;
         default:
+          alert(error.error);
           break;
       }
       return throwError(error.error);

@@ -80,10 +80,16 @@ export class HttpClientService {
       loadingSource.asObservable(),
       request$.pipe(
         delay(requestDelay),
-        tap(() => {
-          loadingSource.next(false);
-          loadingSource.complete();
-        })
+        tap(
+          () => {
+            loadingSource.next(false);
+            loadingSource.complete();
+          },
+          () => {
+            loadingSource.next(false);
+            loadingSource.complete();
+          }
+        )
       )
     );
   }

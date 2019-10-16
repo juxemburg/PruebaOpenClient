@@ -27,14 +27,23 @@
                   </span>
                 </p>
               </div>
-              <div class="flex-container__item --col-xs-12">
+              <div
+                *ngIf="model.fightCount > 0; else errMessage"
+                class="flex-container__item --col-xs-12"
+              >
                 <p class="subtitle">
                   Número de encuentros:
                   <span class="paragraph"> {{ model.fightCount }}</span>
                 </p>
               </div>
-              <div class="flex-container__item"></div>
-              <div class="flex-container__item"></div>
+              <ng-template #errMessage>
+                <div class="flex-container__item">
+                  <p class="paragraph">
+                    Esta arena no tuvo encuentros, debido a que el orden
+                    ingresado era igual al orden resultado.
+                  </p>
+                </div>
+              </ng-template>
             </div>
           </div>
         </div>

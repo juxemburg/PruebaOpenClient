@@ -1,4 +1,4 @@
-.example-viewport {
+.virtual-viewport {
   height: 205px;
   width: 65vw;
 }
@@ -15,3 +15,9 @@
 //   height: 100%;
 //   writing-mode: vertical-lr;
 // }
+
+@media (max-width: 575.98px) {
+  .virtual-viewport {
+    width: 95vw;
+  }
+}

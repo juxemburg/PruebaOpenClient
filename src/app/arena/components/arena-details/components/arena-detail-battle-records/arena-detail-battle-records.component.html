@@ -1,14 +1,11 @@
 <cdk-virtual-scroll-viewport
   orientation="horizontal"
   itemSize="50"
-  class="example-viewport"
+  class="virtual-viewport"
 >
-  <div
-    @list
-    class="flex-container flex-container--row flex-container--ax-start"
-  >
+  <div class="flex-container flex-container--row flex-container--ax-start">
     <ng-container *cdkVirtualFor="let item of model$; templateCacheSize: 0">
-      <div @items class="flex-container__item">
+      <div class="flex-container__item">
         <app-arena-detail-battle-record-item
           [model]="item"
         ></app-arena-detail-battle-record-item>

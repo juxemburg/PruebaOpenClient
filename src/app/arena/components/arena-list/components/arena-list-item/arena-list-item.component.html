@@ -30,10 +30,18 @@
       flex-container--ay-center"
     >
       <div class="flex-container__item">
+        <p *ngIf="model.winnerName" class="subtitle1">
+          Ganador:
+          <app-pokemon-icon [pokemonName]="model.winnerName"></app-pokemon-icon>
+        </p>
+        <p *ngIf="!model.winnerName" class="paragraph2">
+          Esta arena no tuvo encuentros.
+        </p>
         <p class="paragraph2">{{ model.stepCount }} encuentros</p>
       </div>
       <div class="flex-container__item">
         <a
+          *ngIf="model.winnerName"
           [routerLink]="['../', model.id]"
           class="btn btn--primary btn-xs btn--round"
         >
